@@ -75,6 +75,116 @@
       </header>
     </div>
     <!-- navigation -->
+    <% include partials/_header %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <table class="table ">
+        <h4>DATOS:</h4>
+        <thead>
+          <tr>
+            <td>Id</td>
+            <td>Nombre</td>
+            <td>Enlace/Descripción</td>
+            <td>Duración</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data) { %>
+            <% for(var i = 0; i < data.length; i++) { %>
+              <tr>
+                <td><%= (i + 1) %></td>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].address %></td>
+                <td><%= data[i].time %></td>
+                <td>
+                  <a href="/update/<%= data[i].id %>" class="btn btn-primary">Editar</a>
+                  <a href="/delete/<%= data[i].id %>" class="btn btn-secondary">Eliminar</a>
+                </td>
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="col-md-5">
+      <img src="" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/94/61/a2/9461a2c7c1988f4f446f9844e888c66e.jpg" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/c0/bd/ef/c0bdef7b0b2fbe92fc4021e9003a1571.jpg" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/c2/78/8c/c2788cc763162add9b572548045ef2ef.jpg" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/f7/a1/46/f7a1461d26a27b534a2f0c580dbd7192.jpg" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/26/09/c4/2609c41211848ee71f8e1504d68a8eda.jpg" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/54/4b/29/544b2906bb15ffaa689bf096b3d850e4.jpg" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/a5/67/e7/a567e70b50558997460c63ea1fa04787.jpg" weight="90" height="90">
+      <img src="https://i.pinimg.com/564x/53/ec/f6/53ecf67ec5ad53623b32fdd5c1632b4d.jpg" weight="90" height="90">
+    
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    
+    <div class="col-md-7">
+      <div class="card-body">
+        <h4>Inserta un Dato</h4>
+        <form action="/add" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Nombre" class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="address" placeholder="Enlace" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="time" placeholder="Duración" >
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+    
+  
+
+<% include partials/_footer %>
+  <% include partials/_header %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body beige">
+        <form action="/update/<%= data.id %>" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" value="<%= data.name%>" placeholder="Nombre" class="form-control" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" name="address" value="<%= data.address%>" placeholder="Enlace/descripción" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="time" value="<%= data.phone%>" placeholder="Duración" class="form-control">
+          </div>
+
+          <button type="submit" class="btn btn-secondary">
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include partials/_footer %>
+  
+  
+
     
     
 
