@@ -14,7 +14,8 @@
     "nodemon": "^1.19.4"
   },
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "start" : "index.js"
   },
   "keywords": [],
   "author": "",
